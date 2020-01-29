@@ -1,31 +1,7 @@
 .wrapper
   .header
     .header__title
-      Today's CARD
-    %ul.header__list
-      %li.header__list--tags
-        遊戯王
-      %li.header__list--tags
-        ヴァンガード
-      %li.header__list--tags
-        Z/X
-      %li.header__list--tags
-        WIXOSS
-  .main
-    .articles
-      .article
-        .article__top
-          .article__top--image
-            -# == image_tag 'src', alt: '', height: '', width: '', class: ''
-          .article__top--title
-            【VG】1/28 「サービス・インプローバー」
-        .article__bottom
-          .article__bottom--tag
-            %ul.tag-category
-              カテゴリ：
-              %li.tag-category__name
-                ヴァンガード
-          .article__bottom--daytime
-            2020年1月28日 12時01分
-  .footer
-
+      Todays CARD
+    = render "header-list"
+  = render "main"
+  = render "footer"

@@ -1,0 +1,14 @@
+@mixin positionFixed($z-index) {
+  position: fixed;
+  z-index: $z-index;
+}
+
+@mixin heightWidth($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin fontCenter($line-height) {
+  text-align: center;
+  line-height: $line-height;
+}

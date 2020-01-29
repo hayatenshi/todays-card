@@ -1,6 +1,8 @@
 @import "./reset";
 @import "./config/colors";
 @import "./mixin/mixin";
+@import "./modules/header";
+@import "./modules/main";
 @import "./modules/articles";
 @import "font-awesome-sprockets";
 @import "font-awesome";
