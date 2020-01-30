@@ -1,0 +1,6 @@
+.main {
+  @include mainStyle(150px);
+  .articles {
+    padding: 15px 15px 0;
+  }
+}
