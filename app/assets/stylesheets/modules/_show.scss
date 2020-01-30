@@ -1,0 +1,19 @@
+.show-main {
+  @include mainStyle(100px);
+  .show {
+    padding: 15px 15px 0;
+    &__content {
+      @include articleFrame(15px);
+      .article-show {
+        &__image {
+          text-align: center;
+          margin-bottom: 10px;
+        }
+        &__text {
+          color: $mainFont;
+          font-size: 17px;
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,8 @@
 .wrapper
   .header
     .header__title
-      Todays CARD
+      = link_to root_path, class: "title-link" do
+        Todays CARD
     = render "header-list"
   = render "main"
   = render "footer"

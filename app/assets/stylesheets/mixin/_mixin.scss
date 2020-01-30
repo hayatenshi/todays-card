@@ -12,3 +12,20 @@
   text-align: center;
   line-height: $line-height;
 }
+
+@mixin mainStyle($padding-top) {
+  @include heightWidth(calc(100% - 50px), 80%);
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: $padding-top;
+  background-color: $mainBg;
+  overflow: scroll;
+}
+
+@mixin articleFrame($padding) {
+  margin-bottom: 15px;
+  padding: $padding;
+  background-color: $articleBg;
+  border: $articleBorder solid 2px;
+  border-radius: 3px;
+}

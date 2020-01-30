@@ -7,6 +7,14 @@
     font-size: 40px;
     color: $headerTitle;
     background-color: $headerBg;
+    .title-link {
+      color: $headerTitle;
+      text-decoration: none;
+      transition: all 0.3s ease 0s;
+      &:hover {
+        font-size: 41px;
+      }
+    }
   }
   &__list {
     display: flex;
