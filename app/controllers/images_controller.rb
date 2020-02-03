@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  def index
-    @image = Image.find(params[:image_id])
+  def create
+    @images = Image.new
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_105916) do
+ActiveRecord::Schema.define(version: 2020_01_31_111646) do
 
   create_table "article_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "article_id"
@@ -42,7 +42,16 @@ ActiveRecord::Schema.define(version: 2020_01_30_105916) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "scrapings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "code", null: false
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_scrapings_on_category_id"
+  end
+
   add_foreign_key "article_images", "articles"
   add_foreign_key "article_images", "images"
   add_foreign_key "articles", "categories"
+  add_foreign_key "scrapings", "categories"
 end

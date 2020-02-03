@@ -37,7 +37,7 @@ Things you may want to cover:
 ## images table
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
+|url|string|null: false|
 ## Association
 - has_many :article_images
 - has_many :articles, through: :article_images
