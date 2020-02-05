@@ -25,6 +25,7 @@
       background-color: $headerListBg;
       border-bottom: #888 solid 2px;
       border-top: #888 solid 2px;
+      cursor: pointer;
       transition: all 0.3s ease 0s;
       &:hover {
         color: $headerListHoverFont;

@@ -1,17 +1,29 @@
 class ArticlesController < ApplicationController
-  #! OK
   def index
-    @article = Article.new(article_params)
-    @article.save
-    @articles = Article.all.order("created_at DESC").page(params[:page]).per(10)
+    # data = article_params
+    # @article = Article.new(title: data[:title], text: data[:text], category_id: data[:category_id])
+    # if @article.save
+    #   image = @article.images.new(url: data[:url])
+    #   image[:url] = image[:url].sub(/^\[\"/,"").sub(/\"\]$/,"")
+    #   image.save
+    # end
+    @articles = Article.all.order("created_at DESC")
   end
 
   def create
-    @article = Article.new(article_params)
-    @article.save
+    data = article_params
+    @article = Article.new(title: data[:title], text: data[:text], category_id: data[:category_id])
+    if @article.save
+      image = @article.images.new(url: data[:url])
+      image[:url] = image[:url].sub(/^\[\"/,"").sub(/\"\]$/,"")
+      image.save
+    end
+    respond_to do |format|
+      format.html { redirect_to :root }
+      format.json { render json: @article }
+    end
   end
 
-  #! OK
   def show
     @article = Article.find(params[:id])
   end
@@ -20,10 +32,10 @@ class ArticlesController < ApplicationController
   def article_params
     params = ActionController::Parameters.new(scraping)
     params.permit(
-        :title,
-        :text,
-        :category_id,
-        [images_attributes: [:url]]
+      :title,
+      :text,
+      :category_id,
+      url: []
     )
   end
 
@@ -60,7 +72,7 @@ class ArticlesController < ApplicationController
 
     title = "【VG】#{day}#{card_names}"
     text = "#{pack_info}#{card_names}"
-    params = {title: title, text: text, category_id: 1, images_attributes: url}
+    params = {title: title, text: text, category_id: 1, url: url}
     return params
   end
 end

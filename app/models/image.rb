@@ -1,6 +1,5 @@
 class Image < ApplicationRecord
-  has_many :article_images
-  has_many :articles, through: :article_images
+  belongs_to :article, optional: true
 
-  # mount_uploaders :image, ImageUploader
+  validates_presence_of :article
 end
