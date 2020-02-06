@@ -1,12 +1,29 @@
 $(function() {
-  var list = ["遊戯王", "ヴァンガード", "Z/X", "WIXOSS"]
+  var list = ["ヴァンガード", "ヴァイスシュヴァルツ", "バディファイト", "Z/X"]
   
   function resetStyle() {
     $(".header__list--categories").css({
       "color":"",
       "background-color":"",
-      "font-weight":""
+      "font-weight":"",
+      "border-top":""
     });
+    // $(".wrapper").css({
+    //   "background-color":"",
+    // });
+    // $(".header__title").css({
+    //   "background-color":"",
+    // });
+  }
+
+  function resetAppend(){
+    $(".not-article").remove();
+  }
+
+  function resetClick() {
+    resetStyle();
+    resetAppend();
+    $(".article").show();
   }
 
   function styleChange(header) {
@@ -14,12 +31,15 @@ $(function() {
     $(header).css({
       "color":"#fff",
       "background-color":"rgb(119, 119, 119)",
-      "font-weight":"bold"
+      "font-weight":"bold",
+      "border-top":"0.215em solid #666"
     });
-  }
-
-  function resetAppend(){
-    $(".not-article").remove();
+    // $(".wrapper").css({
+    //   "background-color":"rosybrown",
+    // });
+    // $(".header__title").css({
+    //   "background-color":"indianred",
+    // });
   }
 
   function append(word) {
@@ -32,12 +52,6 @@ $(function() {
       "text-align":"center",
       "margin-top":"15px"
     });
-  }
-
-  function resetClick() {
-    resetStyle();
-    resetAppend();
-    $(".article").show();
   }
 
   $(".header__list--categories").on("click", function(e) {
@@ -58,7 +72,7 @@ $(function() {
     });
 
     $(".article").each(function(){
-      val = $(".category__name").text();
+      var val = $(this).text();
       if (val.match(category)) {
         $(this).show();
       } else {
@@ -70,6 +84,15 @@ $(function() {
       append("該当する記事はありません。");
     } else {
       resetAppend();
+    }
+  });
+
+  $(".copyright__link").on("click", function(e) {
+    e.preventDefault();
+    if ($(".balloon").is(":hidden")) {
+      $(".balloon").show();
+    } else {
+      $(".balloon").hide();
     }
   });
 });

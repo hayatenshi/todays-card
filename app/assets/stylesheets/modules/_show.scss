@@ -8,6 +8,10 @@
         &__image {
           text-align: center;
           margin-bottom: 10px;
+          .image {
+            height: auto;
+            max-width: 350px;
+          }
         }
         &__text {
           color: $mainFont;

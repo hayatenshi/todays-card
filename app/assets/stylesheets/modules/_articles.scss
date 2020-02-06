@@ -4,6 +4,7 @@
 
 .wrapper {
   @include heightWidth(100vh, 100vw);
+  @include transition();
   @media only screen and ( max-device-width: 480px) {
     max-width: 400px;
   }
@@ -15,6 +16,7 @@
   &__top {
     width: 100%;
     display: flex;
+    color: $mainFont;
     .article-link {
       color: $mainFont;
       text-decoration: none;
@@ -29,11 +31,11 @@
       position: relative;
       overflow: hidden;
       .image {
+        @include transition();
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -20%);
-        transition: all 0.3s ease 0s;
       }
     }
     &--title {
@@ -68,11 +70,37 @@
   color: $footerFont;
   font-size: 15px;
   .copyright {
+    @include verticalHorizontal(center, normal);
     &__link {
       color: $footerFont;
       font-weight: bold;
-      margin-right: 15px;
-      text-decoration: none;
+      margin-right: 20px;
+      padding: 0 15px 0;
+      cursor: pointer;
+    }
+    &__text {
+      position: relative;
+      .balloon {
+        display: none;
+        width: 510px;
+        background-color: $footerBg;
+        margin: 0 auto;
+        padding: 10px;
+        border-radius: 8px;
+        position: absolute;
+        bottom: 80px;
+        right: -150px;
+        opacity: 0.9;
+        &:after {
+          position: absolute;
+          bottom: -50px;
+          right: 440px;
+          margin-left: -5px;
+          border: 25px solid transparent;
+          border-top-color: $footerBg;
+          content: '';
+        }
+      }
     }
   }
 }

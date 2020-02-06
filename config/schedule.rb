@@ -21,5 +21,18 @@ set :environment, :production
 # Learn more: http://github.com/javan/whenever
 
 every :weekday, at: '10:30 am' do
-  rake 'new_post:add_new_post'
+  rake "scrape:article_vg"
 end
+
+every :weekday, at: '12:00 pm' do
+  rake "scrape:article_ws"
+end
+
+every :weekday, at: '12:00 pm' do
+  rake "scrape:article_bf"
+end
+
+# every :weekday, at: '12:00 pm' do
+#   rake "scrape:article_zx"
+# end
+

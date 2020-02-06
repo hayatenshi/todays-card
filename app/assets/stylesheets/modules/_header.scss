@@ -3,14 +3,15 @@
   @include positionFixed(1);
   &__title {
     @include fontCenter(100px);
+    @include transition();
     height: 100px;
     font-size: 40px;
     color: $headerTitle;
     background-color: $headerBg;
     .title-link {
+      @include transition();
       color: $headerTitle;
       text-decoration: none;
-      transition: all 0.3s ease 0s;
       &:hover {
         font-size: 41px;
       }
@@ -21,12 +22,13 @@
     &--categories {
       @include heightWidth(50px, 25%);
       @include fontCenter(50px);
+      @include transition();
+      min-width: 160px;
       color: $headerListFont;
       background-color: $headerListBg;
       border-bottom: #888 solid 2px;
       border-top: #888 solid 2px;
       cursor: pointer;
-      transition: all 0.3s ease 0s;
       &:hover {
         color: $headerListHoverFont;
         background-color: $headerListHoverBg;
