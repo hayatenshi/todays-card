@@ -1,5 +1,5 @@
 namespace :scrape do
-  desc "VGのページをスクレイピングし投稿する"
+  desc "ヴァンガードのページをスクレイピングし投稿する"
   task article_vg: :environment do
     logger = Logger.new "log/recover_user_life.log"
     ArticlesController.new.create(1)
