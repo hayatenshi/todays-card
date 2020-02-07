@@ -20,11 +20,11 @@ set :environment, :production
 
 # Learn more: http://github.com/javan/whenever
 
-every :weekday, at: ['10:30 am', '12:30 pm'] do
+every :weekday, at: '10:30 am' do
   rake "scrape:article_vg"
 end
 
-every :weekday, at: '13:30 pm' do
+every :weekday, at: '18:00 pm' do
   rake "scrape:article_ws"
 end
 
