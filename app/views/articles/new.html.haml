@@ -1,0 +1,17 @@
+.wrapper
+  .header
+    .header__title
+      = link_to root_path, class: "title-link" do
+        Todays CARD
+  .new-main
+    = form_for @article do |f|
+      = f.label :title, "タイトル"
+      = f.text_area :title, placeholder: "ここに文字を入力してね！"
+      = f.label :text, "テキスト"
+      = f.text_area :text, placeholder: "ここに文字を入力してね！"
+      .file
+      = f.fields_for :images do |c|
+        = c.label :url
+        = c.file_field :url, multiple: true
+      .submit
+        = f.submit "投稿", {class: "btn"}

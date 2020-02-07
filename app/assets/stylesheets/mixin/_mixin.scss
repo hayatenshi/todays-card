@@ -29,3 +29,13 @@
   border: $articleBorder solid 2px;
   border-radius: 3px;
 }
+
+@mixin transition($all:0.3s) {
+  transition: all $all ease 0s;
+}
+
+@mixin verticalHorizontal($justify-content, $align-items) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}

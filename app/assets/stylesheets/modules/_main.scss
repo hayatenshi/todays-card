@@ -2,5 +2,12 @@
   @include mainStyle(150px);
   .articles {
     padding: 15px 15px 0;
+    // 以下はjQueryで追加するクラス
+    .not-article {
+      color: #333;
+      font-size: 24px;
+      text-align: center;
+      margin-top: 15px;
+    }
   }
 }

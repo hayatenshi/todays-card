@@ -28,23 +28,22 @@ Things you may want to cover:
 |------|----|-------|
 |title|string|null: false|
 |text|string|null: false|
-|image|string|null: false|
-|categories_id|integer|null: false, foreign_key: true|
+|category_id|references|foreign_key: true|
 ## Association
 - belongs_to :category
+- has_many :images
 
-## scrapings table
+## images table
 |Column|Type|Options|
 |------|----|-------|
-|code|string|null: false|
-|categories_id|integer|null: false, foreign_key: true|
+|url|string|null: false|
+|article_id|references|foreign_key: true|
 ## Association
-- belongs_to :category
+- belongs_to :article
 
 ## categories table
 |Column|Type|Options|
 |------|----|-------|
-|text|string|null: false|
+|name|string|null: false|
 ## Association
 - has_many :articles
-- has_many :scrapings

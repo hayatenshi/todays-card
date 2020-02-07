@@ -1,0 +1,16 @@
+.article
+  .article__top
+    .article__top--image
+      = link_to article_path(article.id), class: "article-link" do
+        = image_tag article.images[0].url, class: "image"
+    .article__top--title
+      = link_to article_path(article.id), class: "article-link" do
+        = article.title
+  .article__bottom
+    .article__bottom--category
+      %ul.category
+        カテゴリ：
+        %li.category__name
+          = article.category.name
+    .article__bottom--daytime
+      = time(article.created_at)

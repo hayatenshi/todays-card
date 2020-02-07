@@ -9,21 +9,22 @@
         .article
           .article__top
             .article__top--image
-              = image_tag "vgd_today0128_11265fe75161.png", class: "image"
+              = image_tag @article.images[0].url, class: "image"
             .article__top--title
-              【VG】1/28 「サービス・インプローバー」
+              = @article.title
           .article__bottom
             .article__bottom--category
               %ul.category
                 カテゴリ：
                 %li.category__name
-                  ヴァンガード
+                  = @article.category.name
             .article__bottom--daytime
-              2020年1月29日 12時02分
+              = time(@article.created_at)
       .show__content
         .article-show
-          .article-show__image
-            = image_tag "vgd_today0128_11265fe75161.png", class: "image"
+          - @article.images.each do |image|
+            .article-show__image
+              = image_tag image.url, class: "image"
           .article-show__text
-            2020年2月21日(金)発売エクストラブースター第13弾『The Astral Force』収録「サービス・インプローバー」
+            = @article.text
   = render "footer"
