@@ -46,24 +46,21 @@ $(function() {
     resetAppend();
     let item = $('<div class="not-article">').append(word);
     $(".articles").append(item);
-    $(".not-article").css({
-      "color":"#333",
-      "font-size":"24px",
-      "text-align":"center",
-      "margin-top":"15px"
-    });
   }
 
   $(".header__list--categories").on("click", function(e) {
     e.preventDefault();
 
+    // 直前に同じカテゴリを押しているならその変更を打ち消す
     if ($(this).css("background-color") == "rgb(119, 119, 119)") {
       resetClick();
       return;
     } 
 
+    // 押されたカテゴリのCSSを変更する
     styleChange(this);
 
+    // 押されたカテゴリを判別する
     var category = $(this).text();
     $(list).each(function(){
       if (category.match(list)) {
@@ -71,6 +68,7 @@ $(function() {
       }
     });
 
+    // 押されたカテゴリと同カテゴリだけ表示する
     $(".article").each(function(){
       var val = $(this).text();
       if (val.match(category)) {
@@ -80,6 +78,7 @@ $(function() {
       }
     });
 
+    // 表示されている記事が１つもない場合の表示
     if ($($(".article").is(":visible")).length == 0) {
       append("該当する記事はありません。");
     } else {
@@ -87,6 +86,7 @@ $(function() {
     }
   });
 
+  // "著作権について"をクリックでバルーンのON,OFFを切り替える
   $(".copyright__link").on("click", function(e) {
     e.preventDefault();
     if ($(".balloon").is(":hidden")) {

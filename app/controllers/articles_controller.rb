@@ -1,15 +1,5 @@
 class ArticlesController < ApplicationController
   def index
-    # data = article_params(1)
-    # @article = Article.new(title: data[:title], text: data[:text], category_id: data[:category_id])
-    # if @article.save
-    #   image_url = data[:url]
-    #   image_url.each do |img|
-    #     image = @article.images.new(url: img)
-    #     image[:url] = image[:url].sub(/^\[/,"").sub(/\]$/,"").gsub(/\"/,"")
-    #     image.save
-    #   end
-    # end
     @articles = Article.all.order("created_at DESC")
   end
 
@@ -33,12 +23,7 @@ class ArticlesController < ApplicationController
   private
   def article_params(key)
     params = ActionController::Parameters.new(scraping(key))
-    params.permit(
-      :title,
-      :text,
-      :category_id,
-      url: []
-    )
+    params.permit(:title, :text, :category_id, url: [])
   end
 
   def scraping(key)
@@ -99,17 +84,23 @@ class ArticlesController < ApplicationController
   def processing_ws(doc, day)
     page = doc.css(".entry-content")
 
-    pack_day = page.at_css("#grt").text
-    pack_a = pack_day.sub(/▼/,"").sub(/\//,"年")
-    pack_title = page.at_css(".entry-content > h3 > a").text
-    pack_b = pack_title.sub(/\([ァ-ヴ].+\)/," ")
-    pack_info = "#{pack_a}「#{pack_b}」収録"
+    pack_days = page.css("h4").map{|days| "#{days.text.sub(/▼/,"").sub(/\//,"年").sub(/（/,"\(").sub(/）/,"\)")}"}
+    pack_titles = page.css("h3 > a").map{|title| "「#{title.text.sub(/\([ァ-ヴ].+\)/," ")}」"}
+
+    pack_info = []
+    count = 1
+    pack_titles.each do |titles|
+      pack_days.insert(count, "#{titles}、")
+      count += 2
+    end
+    titles = pack_titles.join
+    pack_info = pack_days.join
 
     img = page.css("img.aligncenter").map{ |image| image.attribute("src").value }
     url = img.map{|image_url| "https://ws-tcg.com#{image_url}"}
 
-    title = "【WS】#{day}「#{pack_b}」収録カード"
-    text = pack_info
+    title = "【WS】#{day}#{titles}収録カード"
+    text = "#{pack_info.sub(/、$/,"")}収録"
     params = {title: title, text: text, category_id: 2, url: url}
     return params
   end
@@ -131,4 +122,13 @@ class ArticlesController < ApplicationController
     params = {title: title, text: text, category_id: 3, url: url}
     return params
   end
+
+  # def processing_zx(doc, day)
+  #   page = doc.css("")
+
+  #   title = "【ZX】#{day}#{card_names}"
+  #   text = "#{pack_info}#{card_names}"
+  #   params = {title: title, text: text, category_id: 4, url: url}
+  #   return params
+  # end
 end

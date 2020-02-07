@@ -46,7 +46,7 @@
   }
   &__bottom {
     font-size: 15px;
-    padding-left: calc(100px + 5px);
+    padding: 5px 0 0 calc(100px + 5px);
     &--category {
       .category {
         display: flex;
