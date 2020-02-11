@@ -16,10 +16,4 @@ namespace :scrape do
     logger = Logger.new "log/recover_user_life.log"
     ArticlesController.new.create(3)
   end
-
-  # desc "Z/Xのページをスクレイピングし投稿する"
-  # task article_zx: :environment do
-  #   logger = Logger.new "log/recover_user_life.log"
-  #   ArticlesController.new.create(4)
-  # end
 end

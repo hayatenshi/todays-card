@@ -5,7 +5,7 @@
 
 # Example:
 #
-set :output, "/path/to/my/cron_log.log"
+set :output, "log/crontab.log"
 #
 set :environment, :production
 # every 2.hours do
@@ -31,7 +31,3 @@ end
 every :weekday, at: '12:00 pm' do
   rake "scrape:article_bf"
 end
-
-# every :weekday, at: '12:00 pm' do
-#   rake "scrape:article_zx"
-# end

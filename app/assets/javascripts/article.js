@@ -1,6 +1,11 @@
 $(function() {
-  var list = ["ヴァンガード", "ヴァイスシュヴァルツ", "バディファイト", "Z/X"]
-  
+  var list = [
+    "ヴァンガード",
+    "ヴァイスシュヴァルツ",
+    "バディファイト",
+    "Z/X",
+  ]
+
   function resetStyle() {
     $(".header__list--categories").css({
       "color":"",
@@ -8,12 +13,6 @@ $(function() {
       "font-weight":"",
       "border-top":""
     });
-    // $(".wrapper").css({
-    //   "background-color":"",
-    // });
-    // $(".header__title").css({
-    //   "background-color":"",
-    // });
   }
 
   function resetAppend(){
@@ -34,12 +33,6 @@ $(function() {
       "font-weight":"bold",
       "border-top":"0.215em solid #666"
     });
-    // $(".wrapper").css({
-    //   "background-color":"rosybrown",
-    // });
-    // $(".header__title").css({
-    //   "background-color":"indianred",
-    // });
   }
 
   function append(word) {
