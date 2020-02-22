@@ -37,7 +37,7 @@ $(function() {
 
   function append(word) {
     resetAppend();
-    let item =`
+    var item =`
               <div class="not-article">
                 ${word}
               </div>
