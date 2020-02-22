@@ -37,7 +37,12 @@ $(function() {
 
   function append(word) {
     resetAppend();
-    $(".articles").append($(`<div class="not-article">`).append(word));
+    let item =`
+              <div class="not-article">
+                ${word}
+              </div>
+              `
+    $(".articles").append(item);
   }
 
   $(".header__list--categories").on("click", function(e) {
