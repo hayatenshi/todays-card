@@ -5,7 +5,7 @@
 
 # Example:
 #
-set :output, "log/crontab.log"
+set :output, "log/cron.log"
 #
 set :environment, :production
 # every 2.hours do
