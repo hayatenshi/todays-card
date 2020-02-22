@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
-  database: todays-card_production
-  username: todays-card
-  password: <%= ENV['TODAYS-CARD_DATABASE_PASSWORD'] %>
+  # database: todays-card_production
+  # username: todays-card
+  # password: <%= ENV['TODAYS-CARD_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
