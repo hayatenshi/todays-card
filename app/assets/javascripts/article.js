@@ -37,7 +37,7 @@ $(function() {
 
   function append(word) {
     resetAppend();
-    $(".articles").append($('<div class="not-article">').append(word));
+    $(".articles").append($(`<div class="not-article">`).append(word));
   }
 
   $(".header__list--categories").on("click", function(e) {
