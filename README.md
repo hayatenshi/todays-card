@@ -18,7 +18,7 @@ The timing for updating articles is as follows.
 - Buddyfight : Every day 9:00 AM UTC
 
 
-## data base
+## Data base
 ## articles table
 |Column|Type|Options|
 |------|----|-------|
@@ -48,8 +48,8 @@ The timing for updating articles is as follows.
 
 
 ## Author
-[GitHub]:https://github.com/hayatenshi
-[Twitter]:https://twitter.com/Brave_the_Front
+[GitHub](https://github.com/hayatenshi)
+[Twitter](https://twitter.com/Brave_the_Front)
 
 ©︎Copyright 2020 Todays CARD
 
