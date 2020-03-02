@@ -83,7 +83,7 @@ module Scrape
     url = img.map{ |image_url| "https://ws-tcg.com#{image_url}" }
 
     title = "【WS】#{day}#{pack_names}収録カード"
-    text = "#{pack_info}収録"
+    text = "【#{day} 更新カード】#{pack_info}収録"
     params = {title: title, text: text, category_id: 2, url: url}
     return params
   end
