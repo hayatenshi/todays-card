@@ -1,15 +1,6 @@
 module Scrape
   extend ActiveSupport::Concern
 
-  def image_save(data)
-    image_url = data[:url]
-    image_url.each do |img|
-      image = @article.images.new(url: img)
-      image[:url] = image[:url].sub(/^\[/,"").sub(/\]$/,"").gsub(/\"/,"")
-      image.save
-    end
-  end
-
   def scraping(key)
     require "open-uri"
     require "nokogiri"
@@ -83,7 +74,7 @@ module Scrape
     url = img.map{ |image_url| "https://ws-tcg.com#{image_url}" }
 
     title = "【WS】#{day}#{pack_names}収録カード"
-    text = "【#{day} 更新カード】#{pack_info}収録"
+    text = "#{pack_info}収録"
     params = {title: title, text: text, category_id: 2, url: url}
     return params
   end

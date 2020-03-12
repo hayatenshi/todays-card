@@ -22,8 +22,8 @@ The timing for updating articles is as follows.
 ## articles table
 |Column|Type|Options|
 |------|----|-------|
-|title|string|null: false|
-|text|string|null: false|
+|title|string|null: false, uniqueness: true|
+|text|string|null: false, uniqueness: true|
 |category_id|references|foreign_key: true|
 ### Association
 - belongs_to :category
@@ -33,7 +33,7 @@ The timing for updating articles is as follows.
 ## images table
 |Column|Type|Options|
 |------|----|-------|
-|url|string|null: false|
+|url|string|null: false, uniqueness: true|
 |article_id|references|foreign_key: true|
 ### Association
 - belongs_to :article

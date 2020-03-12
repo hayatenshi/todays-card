@@ -39,3 +39,21 @@
   justify-content: $justify-content;
   align-items: $align-items;
 }
+
+@mixin headerList($bg:$headerListBg) {
+  @include heightWidth(50px, 25%);
+  @include fontCenter(50px);
+  @include transition();
+  min-width: 160px;
+  color: $headerListFont;
+  background-color: $bg;
+  border-bottom: #888 solid 2px;
+  border-top: #888 solid 2px;
+  cursor: pointer;
+}
+
+@mixin headerListHover($bg:$headerListHoverBg) {
+  color: $headerListHoverFont;
+  background-color: $bg;
+  font-weight: bold;
+}

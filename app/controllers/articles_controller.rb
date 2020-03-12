@@ -8,7 +8,16 @@ class ArticlesController < ApplicationController
   def create(key)
     data = article_params(key)
     @article = Article.new(title: data[:title], text: data[:text], category_id: data[:category_id])
-    image_save(data) if @article.save
+    if @article.save
+      data[:url].each do |img|
+        image = @article.images.new(url: img)
+        image[:url] = image[:url].sub(/^\[/,"").sub(/\]$/,"").gsub(/\"/,"")
+        unless image.save
+          @article.destroy
+          break
+        end
+      end
+    end
   end
 
   def show

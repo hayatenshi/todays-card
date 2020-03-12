@@ -71,3 +71,4 @@ gem 'fog-aws'
 gem 'nokogiri'
 gem 'kaminari'
 gem 'whenever', require: false
+gem 'gon'
